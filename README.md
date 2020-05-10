@@ -7,6 +7,6 @@
 #### Ebram Michel Abdelmalak 1500010
 #### Ramez Magdy Karam 1500554
 #### Heba Atef Sayed 1501665
-#### Heba Mohamed Abd El-Miinem 1501671
+#### Heba Mohamed Abd El-Moniem 1501671
 ## Project Demo
 https://drive.google.com/file/d/1gbEMDoMHpksReYbZvtan9AZGW6NtGemV/view?usp=sharing
