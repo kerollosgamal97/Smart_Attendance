@@ -1,7 +1,7 @@
 # Smart Attendance
 ## Description
 ### Keeping track of attendance in classes is usually a tiring process that requires a lot of paperwork and time that TAs waste to correctly assign attendance marks to students thus there is a need for a friendly system capable of tracking attendance correctly and efficiently.
-### The attendance tracking system will be able to track students attendance via a mobile app that can take images of students ID cards and extract their ID numbers and store it for the TAs for later processing. Students can also verify that their attendance marks have been assigned correctly through the app.
+### The attendance tracking system will be able to track students attendance via a mobile app that can take images of students ID cards and extract their ID numbers and store it for the TAs for later processing.
 ## Team Members:
 #### Kerollos Gamal Fakhry 1501050
 #### Ebram Michel Abdelmalak 1500010
