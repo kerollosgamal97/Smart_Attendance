@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3b5998"
+    tools:context=".MainActivity">
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.ChasingDots"
+        android:layout_width="149dp"
+        android:layout_height="108dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="188dp"
+        android:paddingLeft="2dp"
+        android:paddingTop="2dp"
+        android:paddingRight="2dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="171dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="cursive"
+        android:text="mart"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="cursive"
+        android:text="Attendance"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="90dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="S"
+        android:textColor="#FFFFFF"
+        android:textSize="120sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/textView1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
