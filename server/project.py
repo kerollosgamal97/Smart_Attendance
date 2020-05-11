@@ -27,30 +27,39 @@ def extract_text(image,no_of_ids):
     cnts = imutils.grab_contours(cnts)
     cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
     
-        # loop over the contours
+    # loop over the contours
     displayCnt = None
     i=0
     n_id=no_of_ids
     for c in cnts:        
+         # approximate the contour
         peri = cv2.arcLength(c, True)
         approx = cv2.approxPolyDP(c, 0.02 * peri, True)
+        # if the contour has four vertices, then we have found
+        # the thermostat display ( ID )
         if len(approx) == 4:
             displayCnt = approx
+            # extract the thermostat display, apply a perspective transform
+            # to it
             output = four_point_transform(image, displayCnt.reshape(4, 2))
+            ## Old ID 
             if(output.shape[1]>output.shape[0]):
                 dim = (300, 180)
                 output = cv2.resize(output, dim) 
-                crop_img = output[115:145, 90:160]
+                crop_img = output[115:145, 90:160]  ## Crop the Number region
+            ## New ID
             else :
                 dim = (180, 300)
                 output = cv2.resize(output, dim) 
-                crop_img = output[195:215, 40:100]   
+                crop_img = output[195:215, 40:100]  ## Crop the Number region  
+            # Convert To numeric variable
             ids.append(pytesseract.image_to_string(crop_img,lang='eng'))
             i=i+1  
-            if i==n_id:
-                break         
+            if i==n_id:     ## End of IDs
+                break    
+    ## Writing IDs in Text File
     with open('list.txt', 'w') as filehandle:
-         filehandle.writelines("%s\n" % i for i in ids) 
+         filehandle.writelines("%s\n" % i for i in ids)
 def threaded(client,addr):
     #receive the number of ids + image size and calculate number of expected frames
     value=client.recv(1024)
