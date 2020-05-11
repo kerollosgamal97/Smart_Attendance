@@ -83,4 +83,15 @@ def threaded(client,addr):
     #close socket
     client.close()
 
+def Main():
+    # Create a Server Socket
+    server = socket.socket()
+	#host=socket.gethostbyname(socket.gethostname())
+    host= "192.168.1.8"            
+    port = 8000
+	# Bind the socket to address
+    server.bind((host, port))
+    print(host)
+    # Wait for client connection
+    server.listen()
             
