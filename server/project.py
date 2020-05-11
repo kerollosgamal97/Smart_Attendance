@@ -51,3 +51,24 @@ def extract_text(image,no_of_ids):
                 break         
     with open('list.txt', 'w') as filehandle:
          filehandle.writelines("%s\n" % i for i in ids) 
+def threaded(client,addr):
+    #receive the number of ids + image size and calculate number of expected frames
+    value=client.recv(1024)
+    print(value)
+    size=int(value[0:len(value)-2])
+    id_num=int(value[len(value)-1:len(value)])
+    loop=math.ceil(size/1024)
+    print(size)
+    print(id_num)
+    print(loop)
+    it=0
+    #receive image from android 
+    with open('input.jpeg', 'wb') as img:
+        while (it<loop):
+            it=it+1
+            data = client.recv(1024)
+            img.write(data)
+            print(data)
+        print ('image is recieved!')
+
+            
