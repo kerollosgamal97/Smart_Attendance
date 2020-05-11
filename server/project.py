@@ -15,18 +15,21 @@ import _thread
 import math
 
 def extract_text(image,no_of_ids):
+	#create list to store extracted ids
     ids=[]
+	# pre-process the image by resizing it, converting it to graycale
     image=cv2.resize(image,(850,850))
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+	# blurring the image
     blurred = cv2.GaussianBlur(gray, (5,5), 0)
+	#use canny edge detector to detect edges in the image
     edged = cv2.Canny(blurred, 30, 110, 30)
-    # find contours in the edge map, then sort them by their
-    # size in descending order
+    # find contours in the edge map
     cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL,
         cv2.CHAIN_APPROX_SIMPLE)
     cnts = imutils.grab_contours(cnts)
+	# sort the contours by their size in descending order
     cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
-    
     # loop over the contours
     displayCnt = None
     i=0
@@ -60,6 +63,7 @@ def extract_text(image,no_of_ids):
     ## Writing IDs in Text File
     with open('list.txt', 'w') as filehandle:
          filehandle.writelines("%s\n" % i for i in ids)
+		 
 def threaded(client,addr):
     #receive the number of ids + image size and calculate number of expected frames
     value=client.recv(1024)
@@ -105,9 +109,7 @@ def Main():
     server.listen()
     while True:
         print ('Server is waiting..')
-        
         client, addr = server.accept()
-       
         print ('Got connection from', addr)
 		#Start a new thread
         _thread.start_new_thread(threaded, (client,addr,))
