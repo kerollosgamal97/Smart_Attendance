@@ -70,5 +70,17 @@ def threaded(client,addr):
             img.write(data)
             print(data)
         print ('image is recieved!')
+    #read the image sent by the client 
+    img1 = cv2.imread(r"F:\python\input.jpeg")
+	#pass the image to extract_text function to get the id 
+    extract_text(img1,id_num) 
+    # Send output to client
+    print("Beginning File Transfer")
+    f = open("list.txt", 'rb')
+    client.send(f.read(4096))
+    f.close()
+    print("Transfer Complete")
+    #close socket
+    client.close()
 
             
