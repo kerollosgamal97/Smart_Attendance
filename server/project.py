@@ -94,4 +94,14 @@ def Main():
     print(host)
     # Wait for client connection
     server.listen()
+    while True:
+        print ('Server is waiting..')
+        
+        client, addr = server.accept()
+       
+        print ('Got connection from', addr)
+		#Start a new thread
+        _thread.start_new_thread(threaded, (client,addr,))
+    server.close()
+Main()
             
